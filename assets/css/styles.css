@@ -9,7 +9,7 @@ html, body {
 }
 
 header {
-    background-image: url('/assets/images/Regenbogenhintergrund.png'); /* Path to your image */
+    background-image: url('assets/images/Regenbogenhintergrund.png'); /* Path to your image */
     background-size: cover;   /* Ensures the image covers the entire background */
     background-position: center center; /* Centers the image */
     background-attachment: fixed;  /* Keeps the image fixed during scrolling */
@@ -88,7 +88,7 @@ header {
 footer {
     text-align: center;
     padding: 20px;
-    background-image: url('/assets/images/Regenbogenhintergrund.png'); /* Path to your image */
+    background-image: url('assets/images/Regenbogenhintergrund.png'); /* Path to your image */
     background-size: cover;   /* Ensures the image covers the entire background */
     background-position: center center; /* Centers the image */
     background-attachment: fixed;  /* Keeps the image fixed during scrolling */
