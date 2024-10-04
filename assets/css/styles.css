@@ -1,77 +1,97 @@
-body {
-    font-family: Arial, sans-serif;
+/* General Styles */
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    text-align: center;
 }
 
 header {
-    background-color: #333;
+    background-image: url('../images/Regenbogenhintergrund.png'); /* Path to your image */
+    background-size: cover;   /* Ensures the image covers the entire background */
+    background-position: center center; /* Centers the image */
+    background-attachment: fixed;  /* Keeps the image fixed during scrolling */
+    background-repeat: no-repeat;  /* Prevents the image from repeating */
     color: #fff;
     padding: 20px 0;
     text-align: center;
 }
 
 .logo img {
-    height: 50px;
+    height: 200px;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-#hero {
-    background-color: #0c71c3;
-    color: white;
-    text-align: center;
-    padding: 50px 0;
-}
-
-#courses {
-    margin: 50px 0;
-    padding: 20px;
-    text-align: center;
-}
-
-.course-grid {
+/* Wrapper for centering content */
+.wrapper {
+    flex-grow: 1;
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
 }
 
+/* Main Content */
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Grid Layout for Courses */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the cards horizontally */
+    gap: 20px;
+}
+
+/* Course Cards */
 .course-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: white;
     padding: 20px;
-    margin: 10px;
-    border-radius: 10px;
-    text-align: left;
-    width: 250px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-decoration: none;
-    color: black;
-}
-
-#about {
-    background-color: #333;
-    color: white;
-    padding: 50px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Set a fixed width for cards */
     text-align: center;
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Text color inside the card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.course-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.course-card img {
+    width: 100%; /* Ensure the images fit the card */
+    height: 150px; /* Fixed height for uniformity */
+    object-fit: cover; /* Maintain aspect ratio and cover the space */
+    border-radius: 8px;
+}
+
+.course-card h3 {
+    margin: 15px 0 10px 0;
+}
+
+.course-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Footer sticks to the bottom */
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #333;
+    background-image: url('../images/Regenbogenhintergrund.png'); /* Path to your image */
+    background-size: cover;   /* Ensures the image covers the entire background */
+    background-position: center center; /* Centers the image */
+    background-attachment: fixed;  /* Keeps the image fixed during scrolling */
+    background-repeat: no-repeat;  /* Prevents the image from repeating */
     color: white;
 }
