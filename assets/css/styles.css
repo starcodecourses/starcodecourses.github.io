@@ -1,56 +1,97 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Fetch the courses configuration
-    fetch('courses.json')
-      .then(response => response.json())
-      .then(data => {
-        const mainContent = document.querySelector('.content');
-        
-        // Clear existing content
-        mainContent.innerHTML = '';
-        
-        // Iterate through categories
-        data.categories.forEach(category => {
-          // Create section for each category
-          const section = document.createElement('section');
-          section.id = category.id;
-          
-          // Create category title
-          const categoryTitle = document.createElement('h2');
-          categoryTitle.textContent = category.title;
-          section.appendChild(categoryTitle);
-          
-          // Create grid for courses
-          const grid = document.createElement('div');
-          grid.className = 'grid';
-          
-          // Create course cards
-          category.courses.forEach(course => {
-            const courseCard = document.createElement('a');
-            courseCard.href = course.githubLink;
-            courseCard.className = 'course-card';
-            
-            // Course image
-            const courseImage = document.createElement('img');
-            courseImage.src = course.image;
-            courseImage.alt = course.title;
-            courseCard.appendChild(courseImage);
-            
-            // Course title
-            const courseTitle = document.createElement('h3');
-            courseTitle.textContent = course.title;
-            courseCard.appendChild(courseTitle);
-            
-            // Course description
-            const courseDescription = document.createElement('p');
-            courseDescription.textContent = course.description;
-            courseCard.appendChild(courseDescription);
-            
-            grid.appendChild(courseCard);
-          });
-          
-          section.appendChild(grid);
-          mainContent.appendChild(section);
-        });
-      })
-      .catch(error => console.error('Error loading courses:', error));
-  });
+/* General Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+header {
+    background-image: url('/assets/images/Regenbogenhintergrund.png'); /* Path to your image */
+    background-size: cover;   /* Ensures the image covers the entire background */
+    background-position: center center; /* Centers the image */
+    background-attachment: fixed;  /* Keeps the image fixed during scrolling */
+    background-repeat: no-repeat;  /* Prevents the image from repeating */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.logo img {
+    height: 200px;
+}
+
+/* Wrapper for centering content */
+.wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Main Content */
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Grid Layout for Courses */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the cards horizontally */
+    gap: 20px;
+}
+
+/* Course Cards */
+.course-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Set a fixed width for cards */
+    text-align: center;
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Text color inside the card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.course-card img {
+    width: 100%; /* Ensure the images fit the card */
+    height: 150px; /* Fixed height for uniformity */
+    object-fit: cover; /* Maintain aspect ratio and cover the space */
+    border-radius: 8px;
+}
+
+.course-card h3 {
+    margin: 15px 0 10px 0;
+}
+
+.course-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Footer sticks to the bottom */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-image: url('/assets/images/Regenbogenhintergrund.png'); /* Path to your image */
+    background-size: cover;   /* Ensures the image covers the entire background */
+    background-position: center center; /* Centers the image */
+    background-attachment: fixed;  /* Keeps the image fixed during scrolling */
+    background-repeat: no-repeat;  /* Prevents the image from repeating */
+    color: white;
+}
