@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Fetch the courses configuration
-    fetch('courses.json')
+    fetch('/starcode-courses/config/courses.json')
       .then(response => response.json())
       .then(data => {
         const mainContent = document.querySelector('.content');
